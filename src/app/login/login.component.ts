@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IdentifiantsVM } from '../model/IndentifiantsVM';
+import { BackEndService } from '../back-end.service';
+
 
 @Component({
   selector: 'app-login',
@@ -7,13 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  identifiants: IdentifiantsVM = {
+    email:"",
+    password:""
+  };
+
+  constructor(private backService : BackEndService) { }
 
   ngOnInit() {
   }
 
   login()
   {
-    
+    this.backService.Login(this.identifiants).subscribe(data => {console.log(data.email + " " + data.password)});
+
   }
 }
