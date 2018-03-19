@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="starter-template">
+		<br /> <br />
+		<h1>{{titrePage}}</h1>
+		<p class="lead">{{sousTitrePage}}</p>
+	</div>
+</div>
+
+<div *ngIf="inscription" class="alert alert-success">
+  <strong>Success!</strong> Utilisateur ajouté
+</div>
+
+<div class="row"> 
+<div class="col-sm-4"></div> 
+<div class="col-sm-4"> 
+<form class="form-group" >
+	<input id="nom" type="text" class="form-control" name="nom" placeholder="Nom">  
+	<input id="prenom" type="text" class="form-control" name="prenom" placeholder="Prenom">  
+	<input id="mail" type="text" class="form-control" name="mail" placeholder="Mail" >  
+	<input id="pwd" type="text" class="form-control" name="pwd" placeholder="Password">  
+	<input id="adresse" type="text" class="form-control" name="adresse" placeholder="Adresse">  
+	<input id="ville" type="text" class="form-control" name="ville" placeholder="Ville">  
+	<input id="codePostal" type="text" class="form-control" name="codePostal" placeholder="CodePostal">  
+	<input id="tel" type="text" class="form-control" name="tel" placeholder="Tel">  
+
+	<button type="submit" class="btn btn-default" (click)="inscription()">Inscrire</button> 
+</form> 
+</div> 
+<div class="col-sm-4"></div> 
+</div>

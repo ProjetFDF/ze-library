@@ -1,0 +1,44 @@
+<div class="container">
+           <div class="panel panel-primary">
+               <div class="panel-heading">	
+                   <h3>{{titrePage}}</h3>
+                   <p class="lead">{{sousTitrePage}}</p>
+               </div>
+               <div class="panel-body">
+                   <div class="table-responsive">
+                       <table class="table table-striped">
+                           <thead>
+                               <tr>
+                                   <th></th>
+                                   <th style='text-align:left'>Titre</th>
+                                   <th style='text-align:left'>Prix</th>
+                                   <th style='text-align:left'>Auteur(s)</th>
+                                   <th style='text-align:left'>Editeur</th>
+                                   <th style='text-align:left'>Actions</th>
+                               </tr>
+                           </thead>
+                           <tbody id="contenant">
+                           
+                               <tr *ngFor="let book of books">
+                                   <td><img style="max-width: 100px; height: auto;" src="/static/img{{book.imagePath}}"/> ></td>
+                                   <td style="vertical-align: middle;">{{book.bookTitre}}</td>
+                                   <td style="vertical-align: middle;">{{book.bookPrice}}<i class="Eglyphicon glyphicon-euro"></i></td>
+                                    <td style="vertical-align: middle;">                                   
+                                    	<span  *ngFor="let author of book.authors"> {{author.authorFirstname}} {{author.authorLastname}} |</span>
+                                   
+                                    </td>
+                                    <td style="vertical-align: middle;">{{book.editor.editorName}}</td> 
+                                   <td style="vertical-align: middle;">
+                                       <form method="get" action="BookDetail">
+                                           <input type="hidden" name="id" value="{{book.ISBN}}">
+                                           <input type="submit" class="btn btn-info" value="Détail">
+                                       </form>
+                                   </td>
+                               </tr>
+                           
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
+       </div>

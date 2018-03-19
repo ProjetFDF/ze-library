@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+html
+{
+	background-color:#2F2F2F;
+}
+
+body
+{
+	height: 100%;
+	background-color:rgb(245, 245, 245);
+}
+.titre
+{
+	    text-align:center;
+}
+
+#site-content
+{
+  
+  min-height: 600px;
+}
+
+footer {
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+	position: fixed;
+	font-family: 'bgMed',arial,helvetica,sans-serif;
+    font-size: 0.6em;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #272727;
+	padding-top:20px;   
+    text-align:center;
+}
+.imageProduit
+{
+	
+}
