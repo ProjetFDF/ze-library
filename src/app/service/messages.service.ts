@@ -1,25 +1,25 @@
-import {injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@injectable()
+@Injectable()
 export class MessagesService {
-isDiasplayed = true;
+isDisplayed = true;
 alertClass = "";
 message = "";
 contructor() {}
 
-displayerrorMessage(message: string){
+displayErrorMessage(message: string){
     this.message = message;
     this.alertClass = "alert alert-danger";
 
 }
 
 displaySuccessfullMessage(message: string) {
-this.message = message;
+    this.message = message;
     this.alertClass = "alert alert-success";
 
 }
 displayWarningfullMessage(message: string) {
-this.message = message;
+    this.message = message;
     this.alertClass = "alert alert-warning";
 
 }

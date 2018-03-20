@@ -18,7 +18,9 @@ import { LoginComponent } from './login/login.component';
 import { PanierComponent } from './panier/panier.component';
 import { ProductsComponent } from './products/products.component';
 import { TitreetsoutitreComponent } from './titreetsoutitre/titreetsoutitre.component';
-import { BackEndService } from './back-end.service';
+import { BackEndService } from './service/back-end.service';
+import { MessagesService } from './service/messages.service';
+import { DatashareService } from './service/datashare.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,7 @@ import { BackEndService } from './back-end.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [BackEndService],
+  providers: [BackEndService, MessagesService, DatashareService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,14 +9,14 @@ import {MessagesService} from '../service/messages.service';
 export class MessagesComponent implements OnInit {
 alertClass: string ="alert-dismissible fade show";
 message: string ="";
-isDisplayded = false;
+isDisplayed = false;
 
-  constructor()  (private msService: MessagesService) {}
+  constructor (private msService: MessagesService) { }
 
   ngOnInit() {
 this.alertClass = this.msService.alertClass+ this.message;
 this.message = this.msService.message;
-this.isDisplayded = this.msService.isDisplayded;
+this.isDisplayed = this.msService.isDisplayed;
 console.log(this.isDisplayed);
 console.log(this.message);
 console.log(this.alertClass);
