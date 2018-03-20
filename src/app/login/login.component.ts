@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    this.backService.Login(this.identifiants).subscribe(data => {console.log(data.email + " " + data.password)});
+    this.backService.Login(this.identifiants).subscribe(data => {
+      console.log(data.email + " " + data.password)
+    });
 
   }
 }
