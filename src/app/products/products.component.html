@@ -41,7 +41,7 @@
 	<div *ngFor="let book of books">
 		<div>
 			<div class="col-sm-1">
-				<img style="max-width: 150px; height: auto;" src="/static/img{{book.imagePath}}"/>
+				<img style="max-width: 150px; height: auto;" src="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"/>
 			</div>
 			<div class="col-sm-1">
 				<h3> {{book.bookTitre}}</h3>

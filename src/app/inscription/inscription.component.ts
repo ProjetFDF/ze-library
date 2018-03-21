@@ -25,7 +25,6 @@ export class InscriptionComponent implements OnInit {
 	  administrateur:false ,
 	  bookBasketsIds:[],
 	  borrowsIds:[]
-    
   };
 
   constructor(
@@ -40,11 +39,12 @@ export class InscriptionComponent implements OnInit {
 
   inscription()
   {
+      console.log(this.member);
         this.backService.Inscription(this.member).subscribe(
       data => {
         this.backService.handleData(data);
         if (data.payload) {
-          console.log(data.payload);
+      //    console.log(data.payload);
           //cache the logged member in datashare service
          // this.dss.loggedMember = data.payload;
           //navigate to home and display navbar or the hidden tabs
