@@ -46,30 +46,27 @@ export class BackEndService {
    );
  }
  
- GetListAuthor(authors: Author[]): Observable<any>
+ GetListAuthor(): Observable<any>
  {
-   console.log(authors);
-   return this.http.get<Author[]>("http://localhost:8080/ProjetFormation/livre/getList", httpOptions)
+   return this.http.get<Author[]>("http://localhost:8080/GestionBiblio/author/getlist", httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
    );
  }
  
- GetListEditor(editors: Editor[]): Observable<any>
+ GetListEditor(): Observable<any>
  {
-   console.log(editors);
-   return this.http.get<Editor[]>("http://localhost:8080/ProjetFormation/livre/getList", httpOptions)
+   return this.http.get<Editor[]>("http://localhost:8080/GestionBiblio/editor/getlist", httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
    );
  }
 
- GetListCategory(categorys: Category[]): Observable<any>
+ GetListCategory(): Observable<any>
  {
-   console.log(categorys);
-   return this.http.get<Category[]>("http://localhost:8080/ProjetFormation/livre/getList", httpOptions)
+   return this.http.get<Category[]>("http://localhost:8080/GestionBiblio/category/getlist", httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)

@@ -15,11 +15,11 @@ import { Category } from '../model/Category';
 })
 export class BookComponent implements OnInit {
 
-  listeBooks: Book[];
-  listeAuthor: Author[];
-  listeEditor: Editor[];
-  listeCategory: Category[];
-  filtresMultiplesVM: FiltresMultiplesVM;
+  listeBooks: any;
+  listeAuthor: any;
+  listeEditor: any;
+  listeCategory: any;
+  filtresMultiplesVM: any;
 
 
  constructor(
@@ -30,56 +30,9 @@ export class BookComponent implements OnInit {
 
 
  ngOnInit() {
-   this.backService.GetListAuthor(this.listeAuthor).subscribe(
-     data => {
-       this.backService.handleData(data);
-       if (data.payload) {
-         console.log(data.payload);
-         //cache the logged member in datashare service
-         this.listeAuthor = data.payload;
-         
-       }
-     },
-     error => {
-       console.error(error.message);
-       //messageService.displayFailureMessage(error.message);
-     }
-
-   );
-this.backService.GetListEditor(this.listeEditor).subscribe(
-     data => {
-       this.backService.handleData(data);
-       if (data.payload) {
-         console.log(data.payload);
-         //cache the logged member in datashare service
-         this.listeEditor = data.payload;
-         
-       }
-     },
-     error => {
-       console.error(error.message);
-       //messageService.displayFailureMessage(error.message);
-     }
-
-   );
-
-   this.backService.GetListCategory(this.listeCategory).subscribe(
-     data => {
-       this.backService.handleData(data);
-       if (data.payload) {
-         console.log(data.payload);
-         //cache the logged member in datashare service
-         this.listeCategory = data.payload;
-         
-       }
-     },
-     error => {
-       console.error(error.message);
-       //messageService.displayFailureMessage(error.message);
-     }
-
-   );
- 
+    this.getCategories();
+    this.getAuthors();
+    this.getEditors(); 
  }
 
  book() {
@@ -90,7 +43,6 @@ this.backService.GetListEditor(this.listeEditor).subscribe(
          console.log(data.payload);
          //cache the logged member in datashare service
          this.listeBooks = data.payload;
-         
        }
      },
      error => {
@@ -100,6 +52,70 @@ this.backService.GetListEditor(this.listeEditor).subscribe(
 
    );
 
+ }
+
+ getEditors()
+ {
+    this.backService.GetListEditor().subscribe(
+     data => {
+       this.backService.handleData(data);
+       if (data.payload) {
+         console.log(data.payload);
+         //cache the logged member in datashare service
+         this.listeEditor = data.payload;
+         return this.listeEditor;
+       }
+     },
+     error => {
+       console.error(error.message);
+       //messageService.displayFailureMessage(error.message);
+       return null;
+     }
+
+   );
+
+ }
+
+ getAuthors()
+ {
+    this.backService.GetListAuthor().subscribe(
+     data => {
+       this.backService.handleData(data);
+       if (data.payload) {
+         console.log(data.payload);
+         //cache the logged member in datashare service
+         this.listeAuthor = data.payload;
+         return this.listeAuthor;
+       }
+     },
+     error => {
+       console.error(error.message);
+       //messageService.displayFailureMessage(error.message);
+       return null;
+     }
+
+   );
+ }
+
+ getCategories()
+ {
+    this.backService.GetListCategory().subscribe(
+     data => {
+       this.backService.handleData(data);
+       if (data.payload) {
+         console.log(data.payload);
+         //cache the logged member in datashare service
+         this.listeCategory = data.payload;
+         return this.listeCategory;
+       }
+     },
+     error => {
+       console.error(error.message);
+       //messageService.displayFailureMessage(error.message);
+       return null;
+     }
+
+   );
  }
 
 }

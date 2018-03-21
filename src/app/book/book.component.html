@@ -1,5 +1,6 @@
 <div class="row">
-	<div class="">
+	<div class="col-sm-1"></div>
+	<div class="col-sm-10">
 	<div>
 		<input type="text" class="form-control" placeholder="Title" id="title" name="Titre">
 		<div class="form-check" id="listAuthors"><label for="listAuthors">Auteurs :</label>
@@ -10,19 +11,18 @@
 		</div>
 		</div>
 		<div class="">
-		<div class="form-check" id="listEditors"><label for="listAuthors">Editeurs :</label>
+		<div class="form-check" id="listEditors"><label for="listEditors">Editeurs :</label>
 			<div *ngFor="let editor of listeEditor">
 				<input type="checkbox" class="form-check-input" id="exampleCheck2" type="checkbox" name="selection" value="{{editor.editorId}}">
-				<label class="form-check-label" for="exampleCheck2">{{editor.editorName}}</label>
+				<label class="form-check-label" for="exampleCheck2">{{editor.name}}</label>
 			</div>
 		</div>
 		</div>
 		<div class="">
 		<div class="form-check" id="listCategory"><label for="listCategory">Catégories :</label>
 			<div *ngFor="let category of listeCategory">
-			<label for="listAuthors">Editeurs :</label>
 				<input type="checkbox" class="form-check-input" id="exampleCheck3" type="checkbox" name="selection" value="{{category.categoryId}}">
-				<label class="form-check-label" for="exampleCheck3">{{category.categoryName}}</label>
+				<label class="form-check-label" for="exampleCheck3">{{category.name}}</label>
 			</div>
 		</div>
 		</div>
@@ -35,7 +35,8 @@
 			</div>
 			<div class="col-sm-1">
 				<h3> {{book.bookTitre}}</h3>
-				<span> {{book.bookDescription}}<br /> {{book.bookPrice}} 
+				<span> {{book.bookDescription}}<br /> 
+				{{book.bookPrice}} 
 				<i class="Eglyphicon glyphicon-euro"></i><br />
 					<button type="button" class="btn">
 						<i class="glyphicon glyphicon-eye-open"></i>
