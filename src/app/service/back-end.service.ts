@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { IdentifiantsVM } from '../model/IndentifiantsVM';
+import { FiltresMultiplesVM } from '../model/FiltresMultiplesVM';
 import { Member } from '../model/Member';
 import { HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError, retry } from 'rxjs/operators';
 import {MessagesService} from './messages.service';
 import { Book } from '../model/Book';
+import { Author } from '../model/Author';
+import { Editor } from '../model/Editor';
+import { Category } from '../model/Category';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -32,10 +36,40 @@ export class BackEndService {
     console.log(member);
     return this.http.post<Member>("http://localhost:8080/GestionBiblio/member/add",member, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
-  Books(book: Book[]): Observable<any>
+  Books(filtresMultiplesVM): Observable<any>
  {
-   console.log(book);
-   return this.http.get<Book[]>("http://localhost:8080/GestionBiblio/book/recommandes?", httpOptions)
+   console.log(filtresMultiplesVM);
+   return this.http.post<FiltresMultiplesVM>("http://localhost:8080/GestionBiblio/book/search",filtresMultiplesVM, httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+ 
+ GetListAuthor(authors: Author[]): Observable<any>
+ {
+   console.log(authors);
+   return this.http.get<Author[]>("http://localhost:8080/ProjetFormation/livre/getList", httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+ 
+ GetListEditor(editors: Editor[]): Observable<any>
+ {
+   console.log(editors);
+   return this.http.get<Editor[]>("http://localhost:8080/ProjetFormation/livre/getList", httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+
+ GetListCategory(categorys: Category[]): Observable<any>
+ {
+   console.log(categorys);
+   return this.http.get<Category[]>("http://localhost:8080/ProjetFormation/livre/getList", httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
