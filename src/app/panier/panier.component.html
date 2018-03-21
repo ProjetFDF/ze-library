@@ -4,6 +4,7 @@
                    <h3>{{titrePage}}</h3>
                    <p class="lead">{{sousTitrePage}}</p>
                </div>
+                <button (click)="validerLePanier()">Valider le panier</button>
                <div class="panel-body">
                    <div class="table-responsive">
                        <table class="table table-striped">
@@ -29,10 +30,8 @@
                                     </td>
                                     <td style="vertical-align: middle;">{{book.editor.editorName}}</td> 
                                    <td style="vertical-align: middle;">
-                                       <form method="get" action="BookDetail">
-                                           <input type="hidden" name="id" value="{{book.ISBN}}">
-                                           <input type="submit" class="btn btn-info" value="Détail">
-                                       </form>
+                                       <button [disabled]="book.ilEstEmprunter" (click)="taFonctionEmprunter(book.id)">Emprunter</button>
+                                       <button [disabled]="!book.ilEstEmprunter" (click)="taFonctionNePlusEmprunter(book.id)">Ne pas Emprunter</button>
                                    </td>
                                </tr>
                            

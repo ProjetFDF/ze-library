@@ -16,6 +16,7 @@ export interface Book {
     category: number;
 	editor: number;
 	authors: Array<number>;
+	ilEstEmprunter: boolean;
 
 }
 
