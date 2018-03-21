@@ -23,8 +23,9 @@ export class InscriptionComponent implements OnInit {
     postalCode:"" ,
     phone:"" ,
 	  administrateur:false ,
-	  borrows:[] ,
-	  bookBaskets:[]
+	  bookBasketsIds:[],
+	  borrowsIds:[]
+    
   };
 
   constructor(
@@ -33,6 +34,7 @@ export class InscriptionComponent implements OnInit {
     private dss: DatashareService,
     private router: Router
     ) { }
+
   ngOnInit() {
   }
 
@@ -44,7 +46,7 @@ export class InscriptionComponent implements OnInit {
         if (data.payload) {
           console.log(data.payload);
           //cache the logged member in datashare service
-          this.dss.loggedMember = data.payload;
+         // this.dss.loggedMember = data.payload;
           //navigate to home and display navbar or the hidden tabs
           this.router.navigate(['/inscription']);
         }

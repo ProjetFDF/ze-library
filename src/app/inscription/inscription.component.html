@@ -10,20 +10,20 @@
 <div class="col-sm-4"></div>
 <div class="col-sm-4">
 <form class="form-group" >
-	<input id="nom" type="text" class="form-control" name="nom" [(ngModel)]="member.firstname" placeholder="Nom">  
-	<input id="prenom" type="text" class="form-control" name="prenom" [(ngModel)]="member.lastname" placeholder="Prenom">  
-	<input id="mail" type="email" class="form-control" name="mail" [(ngModel)]="member.email" placeholder="Mail" >  
-	<input id="pwd"type="password" class="form-control" name="pwd" [(ngModel)]="member.password" placeholder="Password">  
-	<input id="adresse" type="text" class="form-control" name="adresse" [(ngModel)]="member.address" placeholder="Adresse">  
-	<input id="ville" type="text" class="form-control" name="ville" [(ngModel)]="member.city" placeholder="Ville">  
-	<input id="codePostal" type="text" class="form-control" name="codePostal" [(ngModel)]="member.postalCode" placeholder="CodePostal">  
-	<input id="tel" type="text" class="form-control" name="tel" [(ngModel)]="member.phone" placeholder="Tel">  
+	<input id="nom" type="text" class="form-control" name="firstname" [(ngModel)]="member.firstname" placeholder="Nom">  
+	<input id="prenom" type="text" class="form-control" name="lastname" [(ngModel)]="member.lastname" placeholder="Prenom">  
+	<input id="mail" type="email" class="form-control" name="email" [(ngModel)]="member.email" placeholder="Mail" >  
+	<input id="pwd"type="password" class="form-control" name="password" [(ngModel)]="member.password" placeholder="Password">  
+	<input id="adresse" type="text" class="form-control" name="address" [(ngModel)]="member.address" placeholder="Adresse">  
+	<input id="ville" type="text" class="form-control" name="city" [(ngModel)]="member.city" placeholder="Ville">  
+	<input id="codePostal" type="text" class="form-control" name="postalCode" [(ngModel)]="member.postalCode" placeholder="CodePostal">  
+	<input id="tel" type="text" class="form-control" name="phone" [(ngModel)]="member.phone" placeholder="Tel">  
 	<div class="form-check">
-    	<input type="checkbox" class="form-check-input" [(ngModel)]="member.administrateur" id="admin">
-    	<label class="form-check-label" for="admin" id="admin">Administrateur</label>
+    	<input type="checkbox" class="form-check-input" [(ngModel)]="member.administrateur" name="administrateur" id="admin">
+    	<label class="form-check-label" for="admin" >Administrateur</label>
     </div>
 	<br/>
-	<button type="submit" class="btn btn-default" (click)="inscription()">Inscrire</button> 
+	<button class="btn btn-default" (click)="inscription()">Inscrire</button> 
 </form>
 </div>
 <div class="col-sm-4"></div>
