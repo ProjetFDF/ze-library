@@ -21,6 +21,7 @@ import { TitreetsoutitreComponent } from './titreetsoutitre/titreetsoutitre.comp
 import { BackEndService } from './service/back-end.service';
 import { MessagesService } from './service/messages.service';
 import { DatashareService } from './service/datashare.service';
+import { MessageDirective } from './directives/message.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DatashareService } from './service/datashare.service';
     LoginComponent,
     PanierComponent,
     ProductsComponent,
-    TitreetsoutitreComponent
+    TitreetsoutitreComponent,
+    MessageDirective
   ],
   imports: [
     BrowserModule,

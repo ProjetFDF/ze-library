@@ -4,6 +4,11 @@ import { Injectable } from '@angular/core';
 export class DatashareService {
 
   loggedMember: any;
+
+  isMessageDisplayed = true;
+  alertMessageClass = "";
+  message = "";
+  messageViewContainerRef: any;
   constructor() { }
 
 

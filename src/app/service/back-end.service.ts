@@ -6,6 +6,7 @@ import { Member } from '../model/Member';
 import { HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError, retry } from 'rxjs/operators';
+import {MessagesService} from './messages.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
 @Injectable()
 export class BackEndService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private msService: MessagesService) { }
 
 
   Login(identifiantsVm: IdentifiantsVM): Observable<any> 
@@ -38,10 +39,10 @@ export class BackEndService {
       console.error('An error occured: ',error.error.message);
     } else
     {
-      console.error('Backend return code : ${error.status}, body while was: ${error.error}');
+      console.error('Backend return code : ${error.status}, ' + 'body while was: ${error.error}');
     }
 
-    return new ErrorObservable('Something bad happened; please retry again later.');
+    return new ErrorObservable('Une erreur s\'est produite lors du traitement de votre requête');
   };
 
 
@@ -51,10 +52,12 @@ export class BackEndService {
     if(data.success)
     {
       console.log(data.message);
+      this.msService.displaySuccessfullMessage(data.message);
     }
     else
     {
       console.error(data.message);
+      this.msService.displayErrorMessage(data.message);
     }
   }
 
