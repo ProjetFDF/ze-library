@@ -22,6 +22,7 @@ import { BackEndService } from './service/back-end.service';
 import { MessagesService } from './service/messages.service';
 import { DatashareService } from './service/datashare.service';
 import { MessageDirective } from './directives/message.directive';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MessageDirective } from './directives/message.directive';
     PanierComponent,
     ProductsComponent,
     TitreetsoutitreComponent,
-    MessageDirective
+    MessageDirective,
+    BookComponent
   ],
   imports: [
     BrowserModule,

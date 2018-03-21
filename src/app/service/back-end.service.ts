@@ -7,6 +7,7 @@ import { HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError, retry } from 'rxjs/operators';
 import {MessagesService} from './messages.service';
+import { Book } from '../model/Book';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -26,11 +27,20 @@ export class BackEndService {
     return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/login", identifiantsVm, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
 
-  Inscription(member:Member): Observable<any> 
+  Inscription(member): Observable<any> 
   {
-    console.log();
-    return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/add",member, httpOptions).pipe(retry(3),catchError(this.handleError));
+    console.log(member);
+    return this.http.post<Member>("http://localhost:8080/GestionBiblio/member/add",member, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
+  Books(book: Book[]): Observable<any>
+ {
+   console.log(book);
+   return this.http.get<Book[]>("http://localhost:8080/GestionBiblio/book/recommandes?", httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
 
   private handleError(error: HttpErrorResponse)
   {
