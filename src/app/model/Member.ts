@@ -13,6 +13,6 @@ export interface Member
     postalCode: String;
     phone: String;
 	administrateur: boolean;
-	borrows: Array<Borrow>;
-	bookBaskets: Array<BookBasket> ;
+	borrows: Array<number>;
+	bookBaskets: Array<number> ;
 }

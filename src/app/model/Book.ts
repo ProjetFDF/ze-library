@@ -13,9 +13,9 @@ export interface Book {
     periodicBook:boolean;
 	bookPrice: number; // verifier le type
 	publicationDate: Date;
-    category: Category;
-	editor: Editor;
-	authors: Array<Author>;
+    category: number;
+	editor: number;
+	authors: Array<number>;
 
 }
 

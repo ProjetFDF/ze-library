@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
           this.dss.loggedMember = data.payload;
           //navigate to home and display navbar or the hidden tabs
           this.router.navigate(['/home']);
-          
         }
       },
       error => {

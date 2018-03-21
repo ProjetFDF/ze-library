@@ -6,7 +6,7 @@ export interface BookCopy
 {
     idBookCopy : number;
 	bookCopyTitle: String;
-	bookshelf:Bookshelf;
-	bookBaskets:Array<BookBasket>;
-    book: Book;
+	bookshelf:number;
+	bookBaskets:Array<number>;
+    book: number;
 }

@@ -5,5 +5,5 @@ export interface Borrow
     borrowDate:Date;
     returnDate:Date;
 	idBorrow:number;
-    bookCopy: BookCopy;
+    bookCopy: number;
 }

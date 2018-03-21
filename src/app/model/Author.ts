@@ -4,6 +4,6 @@ export interface Author {
     authorId: number;
 	authorLastname:String;
     authorFirstname: String;
-	booksList : Book[];
+	booksList : Array<number>;
 }
 

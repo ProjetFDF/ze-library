@@ -6,7 +6,7 @@ export interface Registration
 {	
     registrationId:number;
 	registrationDate:Date;
-    member: Member;
-	library: Library;
+    member: number;
+	library: number;
     
 }

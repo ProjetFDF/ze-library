@@ -25,6 +25,12 @@ export class BackEndService {
     return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/login", identifiantsVm, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
 
+  Inscription(member:Member): Observable<any> 
+  {
+    console.log();
+    return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/add",member, httpOptions).pipe(retry(3),catchError(this.handleError));
+  } 
+
   private handleError(error: HttpErrorResponse)
   {
     if(error.error instanceof ErrorEvent)
@@ -37,6 +43,8 @@ export class BackEndService {
 
     return new ErrorObservable('Something bad happened; please retry again later.');
   };
+
+
 
   handleData(data: any)
   {

@@ -6,5 +6,5 @@ export interface Bookshelf
 	bookshelfName:String;
     bookshelfDescription:String;
 	bookNumber:number;
-	bookshelfBookCopy:Array<BookCopy>;
+	bookshelfBookCopy:Array<number>;
 }

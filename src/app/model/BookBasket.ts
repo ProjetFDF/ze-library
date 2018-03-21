@@ -5,5 +5,5 @@ export interface BookBasket
     bookBasketId:number;
 	bookBasketCreationDate:Date;
     bookBasketDeliveryDate:Date;
-	bookBasketBookCopy:Array<BookCopy>;
+	bookBasketBookCopy:Array<number>;
 }

@@ -7,7 +7,7 @@ export interface Library
 	libraryCode:String;
 	libraryName:String;
     libraryAddress:String;
-	registrations:Array<Registration> ;
-	books:Array<Book>;
+	registrations:Array<number> ;
+	books:Array<number>;
 
 }
