@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { PanierComponent } from './panier/panier.component';
 import { BookComponent } from './book/book.component';
 import {MessagesComponent} from './messages/messages.component';
+import { CreationlivreComponent } from './creationlivre/creationlivre.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'panier', component: PanierComponent },
   { path: 'book', component: BookComponent },
+  { path: 'creationlivre', component: CreationlivreComponent },
   { path: 'messages', component: MessagesComponent, outlet:'messages' },
   { path: '**', component: PagenotfoundComponent }
 

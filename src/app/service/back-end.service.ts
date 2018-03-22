@@ -36,6 +36,13 @@ export class BackEndService {
     console.log(member);
     return this.http.post<Member>("http://localhost:8080/GestionBiblio/member/add",member, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
+
+ Creationlivre(book): Observable<any> 
+  {
+    console.log(book);
+    return this.http.post<Book>("http://localhost:8080/GestionBiblio/book/add",book, httpOptions).pipe(retry(3),catchError(this.handleError));
+  } 
+
   Books(filtresMultiplesVM): Observable<any>
  {
    console.log(filtresMultiplesVM);

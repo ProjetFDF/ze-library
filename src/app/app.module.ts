@@ -23,6 +23,8 @@ import { MessagesService } from './service/messages.service';
 import { DatashareService } from './service/datashare.service';
 import { MessageDirective } from './directives/message.directive';
 import { BookComponent } from './book/book.component';
+import { CreationlivreComponent } from './creationlivre/creationlivre.component';
+import { ChecklistModule } from 'angular-checklist';
 
 @NgModule({
   declarations: [
@@ -41,13 +43,15 @@ import { BookComponent } from './book/book.component';
     ProductsComponent,
     TitreetsoutitreComponent,
     MessageDirective,
-    BookComponent
+    BookComponent,
+    CreationlivreComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ChecklistModule
   ],
   providers: [BackEndService, MessagesService, DatashareService],
   bootstrap: [AppComponent]
