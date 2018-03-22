@@ -12,7 +12,7 @@ export interface Book {
     popularBook: boolean;
     periodicBook:boolean;
 	bookPrice: number; // verifier le type
-	publicationDate: Date;
+	publicationDate: String;
     category: number;
 	editor: number;
 	authors: Array<number>;

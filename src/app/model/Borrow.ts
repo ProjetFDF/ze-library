@@ -2,8 +2,8 @@ import { BookCopy } from './BookCopy'
 
 export interface Borrow
 {
-    borrowDate:Date;
-    returnDate:Date;
+    borrowDate:String;
+    returnDate:String;
 	idBorrow:number;
     bookCopy: number;
 }

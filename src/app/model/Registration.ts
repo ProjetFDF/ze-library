@@ -5,7 +5,7 @@ import { Member } from './Member'
 export interface Registration
 {	
     registrationId:number;
-	registrationDate:Date;
+	registrationDate:String;
     member: number;
 	library: number;
     

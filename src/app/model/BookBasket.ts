@@ -3,7 +3,7 @@ import { BookCopy } from './BookCopy'
 export interface BookBasket
 {
     bookBasketId:number;
-	bookBasketCreationDate:Date;
-    bookBasketDeliveryDate:Date;
+	bookBasketCreationDate:String;
+    bookBasketDeliveryDate:String;
 	bookBasketBookCopy:Array<number>;
 }
