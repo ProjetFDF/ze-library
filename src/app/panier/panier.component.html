@@ -1,10 +1,5 @@
 <div class="container">
            <div class="panel panel-primary">
-               <div class="panel-heading">	
-                   <h3>{{titrePage}}</h3>
-                   <p class="lead">{{sousTitrePage}}</p>
-               </div>
-                <button (click)="validerLePanier()">Valider le panier</button>
                <div class="panel-body">
                    <div class="table-responsive">
                        <table class="table table-striped">
@@ -21,23 +16,22 @@
                            <tbody id="contenant">
                            
                                <tr *ngFor="let book of books">
-                                   <td><img style="max-width: 100px; height: auto;" src="/static/img{{book.imagePath}}"/> ></td>
+                                   <td><img style="max-width: 100px; height: auto;" src="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"/></td>
                                    <td style="vertical-align: middle;">{{book.bookTitre}}</td>
                                    <td style="vertical-align: middle;">{{book.bookPrice}}<i class="Eglyphicon glyphicon-euro"></i></td>
-                                    <td style="vertical-align: middle;">                                   
+                                   <!-- <td style="vertical-align: middle;">
                                     	<span  *ngFor="let author of book.authors"> {{author.authorFirstname}} {{author.authorLastname}} |</span>
-                                   
                                     </td>
-                                    <td style="vertical-align: middle;">{{book.editor.editorName}}</td> 
+                                    <td style="vertical-align: middle;">{{book.editor.editorName}}</td> -->
                                    <td style="vertical-align: middle;">
-                                       <button [disabled]="book.ilEstEmprunter" (click)="taFonctionEmprunter(book.id)">Emprunter</button>
-                                       <button [disabled]="!book.ilEstEmprunter" (click)="taFonctionNePlusEmprunter(book.id)">Ne pas Emprunter</button>
+                                       <button (click)="enleverDuPanier(book.id)">Supprimer du panier</button>
                                    </td>
                                </tr>
                            
                            </tbody>
                        </table>
-                   </div>
-               </div>
-           </div>
-       </div>
+                   <!-- <button [disabled]="!dss.loggedMember.administrateur" (click)="emprunter(book.id)">Valider le panier</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
