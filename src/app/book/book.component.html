@@ -1,43 +1,63 @@
 <div class="row">
-	<div class="col-sm-1"></div>
-	<div class="col-sm-10">
-	<div>
-		<input type="text" class="form-control" placeholder="Title" id="title" name="Titre">
-		<div class="form-check" id="listAuthors"><label for="listAuthors">Auteurs :</label>
-			<div *ngFor="let author of listeAuthor">
-				<input  type="checkbox" class="form-check-input" id="exampleCheck1" type="checkbox" name="selection" value="{{author.authorId}}">
-				<label class="form-check-label" for="exampleCheck1">{{author.authorLastname}} {{author.authorFirstname}}</label>
-			</div>
-		</div>
-		</div>
-		<div class="">
-		<div class="form-check" id="listEditors"><label for="listEditors">Editeurs :</label>
-			<div *ngFor="let editor of listeEditor">
+
+	<div class="col-sm-2" id="filtres">
+		<form>
+				<input type="text" class="form-control" placeholder="Titre" [(ngModel)]="filtresMultiplesVM.titre" id="titre" name="Titre">
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" [(ngModel)]="filtresMultiplesVM.recommande" name="administrateur" id="admin">
+					<label class="form-check-label" for="admin">Recommandé</label>
+				</div>
+				<div class="">
+					<div class="form-check" id="listAuthors"><label for="listAuthors">Auteurs :</label></div>
+					<!--			<div *ngFor="let author of listeAuthor">
+				<input  type="checkbox" class="form-check-input" type="checkbox" name="selection" checklist-model="filtresMultiplesVM.authorIds" checklist-value="{{author.authorId}}">
+				<label class="form-check-label">{{author.authorLastname}} {{author.authorFirstname}}</label>
+			</div>-->
+					<label *ngFor="let author of listeAuthor">
+  				<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.authorIds" [checklistValue]="author.authorId"/>
+				  {{author.authorLastname}} {{author.authorFirstname}}
+			</label>
+				</div>
+				<div class="">
+					<div class="form-check" id="listEditors"><label for="listEditors">Editeurs :</label>
+						<!--		<div *ngFor="let editor of listeEditor">
 				<input type="checkbox" class="form-check-input" id="exampleCheck2" type="checkbox" name="selection" value="{{editor.editorId}}">
 				<label class="form-check-label" for="exampleCheck2">{{editor.name}}</label>
-			</div>
-		</div>
-		</div>
-		<div class="">
-		<div class="form-check" id="listCategory"><label for="listCategory">Catégories :</label>
-			<div *ngFor="let category of listeCategory">
+			</div>-->
+					</div>
+					<label *ngFor="let editor of listeEditor">
+  				<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.editorIds" [checklistValue]="editor.authorId"/>
+				  {{editor.name}}
+			</label>
+				</div>
+				<div class="">
+					<div class="form-check" id="listCategory"><label for="listCategory">Catégories :</label>
+						<!--	<div *ngFor="let category of listeCategory">
 				<input type="checkbox" class="form-check-input" id="exampleCheck3" type="checkbox" name="selection" value="{{category.categoryId}}">
 				<label class="form-check-label" for="exampleCheck3">{{category.name}}</label>
-			</div>
-		</div>
-		</div>
+			</div>-->
+					</div>
+					<label *ngFor="let category of listeCategory">
+  				<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.categoryIds" [checklistValue]="category.idCategory"/>
+				  {{category.name}}
+			</label>
+				</div>
+				<button (click)="book()" class="btn btn-default">Filtrer</button>
+		</form>
 	</div>
-	<div class="col-sm-1"></div>
-	<div *ngFor="let book of listeBooks">
-		<div>
-			<div class="col-sm-1">
-				<img style="max-width: 150px; height: auto;" src="/static/img{{book.imagePath}}"/>
-			</div>
-			<div class="col-sm-1">
-				<h3> {{book.bookTitre}}</h3>
-				<span> {{book.bookDescription}}<br /> 
-				{{book.bookPrice}} 
-				<i class="Eglyphicon glyphicon-euro"></i><br />
+
+		<div class="col-sm-1"></div>
+		<div *ngFor="let book of listeBooks">
+			<div>
+				<div class="col-sm-1">
+					<img style="max-width: 150px; height: auto;" src="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"
+					/>
+				</div>
+				<div class="col-sm-1">
+					<h3> {{book.bookTitre}}</h3>
+					<span> {{book.bookDescription}}<br />
+					{{book.bookPrice}} 
+					<i class="Eglyphicon glyphicon-euro"></i><br />
 					<button type="button" class="btn">
 						<i class="glyphicon glyphicon-eye-open"></i>
 					</button>
@@ -45,8 +65,8 @@
 						<i class="glyphicon glyphicon-shopping-cart"></i>
 					</button>
 				</span>
+				</div>
 			</div>
 		</div>
+
 	</div>
-	<div class="col-sm-1"></div>
-</div>
