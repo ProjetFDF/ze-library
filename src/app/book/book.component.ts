@@ -46,8 +46,8 @@ export class BookComponent implements OnInit {
  book() {
    this.backService.Books(this.filtresMultiplesVM).subscribe(
      data => {
-       console.log("================================================");
-         console.log(this.filtresMultiplesVM.authorIds);
+    //   console.log("================================================");
+      //   console.log(this.filtresMultiplesVM.authorIds);
        this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);

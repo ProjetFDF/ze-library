@@ -80,6 +80,15 @@ export class BackEndService {
    );
  }
 
+ GetListBookBasketByMember(member:Member): Observable<any>
+ {
+   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookbasket/getlistbyidmember",member , httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+
   private handleError(error: HttpErrorResponse)
   {
     if(error.error instanceof ErrorEvent)

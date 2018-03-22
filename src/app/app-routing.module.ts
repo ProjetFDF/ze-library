@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'book', component: BookComponent },
   { path: 'creationlivre', component: CreationlivreComponent },
   { path: 'messages', component: MessagesComponent, outlet:'messages' },
+  { path: '', redirectTo:'/book', pathMatch:'full' },
   { path: '**', component: PagenotfoundComponent }
 
 
