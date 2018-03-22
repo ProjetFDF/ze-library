@@ -32,7 +32,7 @@ publicationDate:"" ,
 category:0 ,
 editor:0 ,
 authors:[] ,
-ilEstEmprunter:false ,
+
     };
 
   

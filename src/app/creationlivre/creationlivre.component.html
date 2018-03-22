@@ -1,33 +1,84 @@
 <div class="row">
-<div class="col-sm-4"></div>
-<div class="col-sm-4">
-<form class="form-group" >
-	<input id="ISBN" type="text" class="form-control" name="ISBN" [(ngModel)]="book.ISBN" placeholder="ISBN">  
-	<input id="titre" type="text" class="form-control" name="bookTitre" [(ngModel)]="book.bookTitre" placeholder="titre">  
-	<input id="description" type="text" class="form-control" name="bookDescription" [(ngModel)]="book.bookDescription" placeholder="description" >  	
-	<input id="prix" type="text" class="form-control" name="bookPrice" [(ngModel)]="book.bookPrice" placeholder="prix">  
-	<input id="datePublication" type="text" class="form-control" name="publicationDate" [(ngModel)]="book.publicationDate" placeholder="datePublication">  
-	<input id="categories" type="text" class="form-control" name="category" [(ngModel)]="book.category" placeholder="categories"> 
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		<form class="form-group">
+			<input id="ISBN" type="text" class="form-control" name="ISBN" [(ngModel)]="book.ISBN" placeholder="ISBN">
+			<input id="titre" type="text" class="form-control" name="bookTitre" [(ngModel)]="book.bookTitre" placeholder="titre">
+			<input id="description" type="text" class="form-control" name="bookDescription" [(ngModel)]="book.bookDescription" placeholder="description">
+			<input id="prix" type="text" class="form-control" name="bookPrice" [(ngModel)]="book.bookPrice" placeholder="prix">
+			<input id="datePublication" type="text" class="form-control" name="publicationDate" [(ngModel)]="book.publicationDate" placeholder="datePublication">
+			<!--<input id="categories" type="text" class="form-control" name="category" [(ngModel)]="book.category" placeholder="categories"> 
     <input id="editor" type="text" class="form-control" name="editor" [(ngModel)]="book.editor" placeholder="editor">
 	<br/>
-    <!--<input id="auteur" type="text" class="form-control" name="authors" [(ngModel)]="book.authors" placeholder="auteur">-->
-    <select name="author.authorFirstname.authorLastname" [(ngModel)]='authors.authorId'>
-                        <option *ngFor="let author of listeAuthor"
-                            [ngValue]="author.authorFirstname.authorLastname">{{author.authorFirstname.authorLastname}}</option>
-                    </select>
-                    <br/>
-	<div class="form-check">
-    	<input type="checkbox" class="form-check-input" [(ngModel)]="book.periodicBook" name="periodicBook" id="periodique">
-    	<label class="form-check-label" for="periodique" >Periodique</label>
-    </div>
-    <br/>
-    <div class="form-check">
-    	<input type="checkbox" class="form-check-input" [(ngModel)]="book.popularBook" name="popularBook" id="populaire">
-    	<label class="form-check-label" for="populaire" >Populaire</label>
-    </div>
-	<br/>
-	<button class="btn btn-default" (click)="creationlivre()">Enregistrer</button> 
-</form>
-</div>
-<div class="col-sm-4"></div>
+    <input id="auteur" type="text" class="form-control" name="authors" [(ngModel)]="book.authors" placeholder="auteur">-->
+
+
+			<!--<select name="authorlist" multiple*ngFor="let author of listeAuthor" >
+				<option [(checklist)]="book.authors" [checklistValue]="author.authorId">{{author.authorLastname}} {{author.authorFirstname}}</option>
+			</select>-->
+			<br/>
+			<div>
+			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
+				<div class="form-check" id="listAuthors"><label for="listAuthors">Auteurs :</label></div>
+				<label *ngFor="let author of listeAuthor">
+                 <input type="checkbox" class="form-check-input" name="selectionAuteur" [(checklist)]="book.authors" [checklistValue]="author.authorId"/>
+                  {{author.authorLastname}} {{author.authorFirstname}}
+            </label>
+			</div>
+			</div>
+			
+
+			<div>
+			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
+				<div class="form-check" id="listEditors"><label for="listEditors">Editeurs :</label></div>
+				<label *ngFor="let editor of listeEditor">
+                 <input type="radio" class="form-check-input" name="selectionEditeur" [(checklist)]="book.editor" [checklistValue]="editor.editorId"/>
+                  {{editor.name}}
+            </label>
+			</div>
+			</div>
+
+
+			
+			<div>
+			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
+				<div class="form-check" id="listCategorys"><label for="listCategorys">categories :</label></div>
+				<label *ngFor="let category of listeCategory">
+                 <input type="radio" class="form-check-input" name="selectionCategory" [(checklist)]="book.category" [checklistValue]="category.categoryId"/>
+                  {{category.name}}
+            </label>
+			</div>
+			</div>
+			<br/>
+			
+			<br/>
+<br/>
+			<br/>
+<br/>
+			
+			<br/>
+<br/>
+			<br/>
+			<br/>
+			
+			<br/>
+<br/>
+			<br/>
+			<br/>
+			
+			<br/>
+<br/>
+		
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" [(ngModel)]="book.periodicBook" name="periodicBook" id="periodique">
+				<label class="form-check-label" for="periodique">Periodique</label>
+			</div>			
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" [(ngModel)]="book.popularBook" name="popularBook" id="populaire">
+				<label class="form-check-label" for="populaire">Populaire</label>
+			</div>			
+			<button class="btn btn-default" (click)="creationlivre()">Enregistrer</button>
+		</form>
+	</div>
+	<div class="col-sm-4"></div>
 </div>
