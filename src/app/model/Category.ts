@@ -1,7 +1,7 @@
 
 export interface Category
 {
-    categoryId : number;
+    idCategory : number;
     name : String;
     description : String;
 }

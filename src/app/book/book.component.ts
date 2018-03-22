@@ -19,30 +19,41 @@ export class BookComponent implements OnInit {
   listeAuthor: any;
   listeEditor: any;
   listeCategory: any;
-  filtresMultiplesVM: any;
+  filtresMultiplesVM: FiltresMultiplesVM = {
+	authorIds:[],
+	editorsIds:[],
+	categoryIds:[],
+	recommande:true,
+	titre:""
+  };
 
 
  constructor(
     private backService: BackEndService,
    private messageService: MessagesService,
    private dss: DatashareService
-   ) {this.book();}
+   ) {}
 
 
  ngOnInit() {
     this.getCategories();
     this.getAuthors();
-    this.getEditors(); 
+    this.getEditors();
+    this.book();
+    
  }
 
  book() {
-   this.backService.Books(this.listeBooks).subscribe(
+   this.backService.Books(this.filtresMultiplesVM).subscribe(
      data => {
+       console.log("================================================");
+         console.log(this.filtresMultiplesVM.authorIds);
        this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service
          this.listeBooks = data.payload;
+         
        }
      },
      error => {
