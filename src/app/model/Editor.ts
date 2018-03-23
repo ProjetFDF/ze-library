@@ -1,7 +1,7 @@
 
 export interface Editor
 {
-    editorId:number;
+    idEditor:number;
 	name:String;
     address: String;
 }

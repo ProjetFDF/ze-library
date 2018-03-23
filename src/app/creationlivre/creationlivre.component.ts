@@ -21,7 +21,7 @@ export class CreationlivreComponent implements OnInit {
 
     book:Book= {
     idBook:0 ,
-ISBN:0 ,
+isbn:0 ,
 bookTitre:"" ,
 bookDescription:"" ,
 imagePath:"" ,
@@ -29,13 +29,14 @@ popularBook:false ,
 periodicBook:false ,
 bookPrice:0 ,
 publicationDate:"" ,
-category:0 ,
-editor:0 ,
-authors:[] ,
+categoryId:0 ,
+editorId:0 ,
+authorIds:[] ,
 
     };
 
-  
+//  categoryIds:Array<number>;
+//editorIds:Array<number>;
 
   constructor(
     private backService : BackEndService,
@@ -48,16 +49,19 @@ authors:[] ,
        this.getCategories();
     this.getAuthors();
     this.getEditors(); 
+   // console.log(this.getEditors());
   }
 
   creationlivre()
   {
+    // this.book.categoryId =  this.categoryIds[0];
+   //   this.book.editorId =  this.editorIds[0];
       console.log(this.book);
         this.backService.Creationlivre(this.book).subscribe(
       data => {
         this.backService.handleData(data);
         if (data.payload) {
-      //    console.log(data.payload);
+          console.log(data.payload);
           //cache the logged member in datashare service
          // this.dss.loggedMember = data.payload;
           //navigate to home and display navbar or the hidden tabs
