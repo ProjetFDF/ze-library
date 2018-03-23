@@ -1,60 +1,59 @@
-<div class="row">
 
-	<div class="col-sm-2" id="filtres">
-		<form>
-			<input type="text" class="form-control" placeholder="Titre" [(ngModel)]="filtresMultiplesVM.titre" id="titre" name="Titre">
-			<div class="form-check">
-				<input type="checkbox" class="form-check-input" [(ngModel)]="filtresMultiplesVM.recommande" name="administrateur" id="admin">
-				<label class="form-check-label" for="admin">Recommandé</label>
-			</div>
-			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
-				<div class="form-check" id="listAuthors"><label for="listAuthors">Auteurs :</label></div>
-				<label *ngFor="let author of listeAuthor">
-  					<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.authorIds" [checklistValue]="author.authorId"/>
-				  		{{author.authorLastname}} {{author.authorFirstname}}
-				</label>
-			</div>
-			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
-				<div class="form-check" id="listEditors"><label for="listEditors">Editeurs :</label>
+	<div class="row">
+		<div class="col-lg-2 col-md-6" id="filtres">
+			<h1 class="my-4">Filtres</h1>
+			<form>
+				<div class="list-group">
+					<input type="text" class="form-control list-group-item" placeholder="Titre" [(ngModel)]="filtresMultiplesVM.titre" id="titre" name="Titre">
+						<label class="form-check-label list-group-item" for="admin"><input type="checkbox" class="form-check-input" [(ngModel)]="filtresMultiplesVM.recommande" name="administrateur" id="admin">
+						Recommandé</label>
+					<div class="list-group-item" style="float:left;  font-size:1.1em; overflow:auto; ">
+						<div class="form-check" id="listAuthors"><label for="listAuthors">Auteurs :</label></div>
+						<label *ngFor="let author of listeAuthor" class="list-group-item">
+							<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.authorIds" [checklistValue]="author.authorId"/>
+								{{author.authorFirstname}} {{author.authorLastname}}
+						</label>
+					</div>
+					<div class="list-group-item" style="float:left;  font-size:1.1em; overflow:auto;">
+						<div class="form-check" id="listEditors"><label for="listEditors">Editeurs :</label>
+						</div>
+						<label *ngFor="let editor of listeEditor" class="list-group-item">
+						<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.editorIds" [checklistValue]="editor.authorId"/>
+						{{editor.name}}
+					</label>
+					</div>
+					<div class="list-group-item" style="float:left;  font-size:1.1em; overflow:auto;">
+						<div class="form-check" id="listCategory"><label for="listCategory">Catégories :</label>
+						</div>
+						<label *ngFor="let category of listeCategory" class="list-group-item">
+						<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.categoryIds" [checklistValue]="category.idCategory"/>
+						{{category.name}}
+					</label>
+					</div>
+					<button (click)="book()" class="btn btn-default">Filtrer</button>
 				</div>
-				<label *ngFor="let editor of listeEditor">
-  				<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.editorIds" [checklistValue]="editor.authorId"/>
-				  {{editor.name}}
-			</label>
-			</div>
-			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
-				<div class="form-check" id="listCategory"><label for="listCategory">Catégories :</label>
-				</div>
-				<label *ngFor="let category of listeCategory">
-  				<input type="checkbox" class="form-check-input" type="checkbox" name="selection" [(checklist)]="filtresMultiplesVM.categoryIds" [checklistValue]="category.idCategory"/>
-				  {{category.name}}
-			</label>
-			</div>
-			<button (click)="book()" class="btn btn-default">Filtrer</button>
-		</form>
+			</form>
+		</div>
 	</div>
-
-	<div class="col-sm-1"></div>
-	<div *ngFor="let book of listeBooks">
-		<div>
-			<div class="col-sm-1">
-				<img style="max-width: 150px; height: auto;" src="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"
-				/>
-			</div>
-			<div class="col-sm-1">
-				<h3> {{book.bookTitre}}</h3>
-				<span> {{book.bookDescription}}<br />
-					{{book.bookPrice}} 
-					<i class="Eglyphicon glyphicon-euro"></i><br />
-					<button type="button" class="btn">
+	<div class="row">
+		<div class="col-lg-10">
+			<div *ngFor="let book of listeBooks" class="col-lg-3 col-md-6 mb-4" id="book" >
+					<div class="card h-100" >
+						<a href="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"><img style="max-width: 150px; height: auto;" src="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"/></a>
+					<div class="card-body">
+						<h4 class="card-title"><a href="#">{{book.bookTitre}}</a></h4>
+						<h5>{{book.bookPrice}}<i class="Eglyphicon glyphicon-euro"></i></h5> 
+						<p class="card-text">{{book.bookDescription}}</p>
+					</div>
+					<div class="card-footer">
+						<button type="button" class="btn">
 						<i class="glyphicon glyphicon-eye-open"></i>
-					</button>
-					<button type="button" class="btn">
+						</button>
+						<button type="button" class="btn">
 						<i class="glyphicon glyphicon-shopping-cart"></i>
-					</button>
-				</span>
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-</div>

@@ -1,5 +1,3 @@
-import { BookCopy } from './BookCopy'
-
 export interface BookBasket
 {
     bookBasketId:number;

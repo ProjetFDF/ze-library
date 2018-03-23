@@ -3,7 +3,9 @@ import { BackEndService } from '../service/back-end.service';
 import { MessagesService } from '../service/messages.service';
 import { DatashareService } from '../service/datashare.service';
 import { Book } from '../model/Book';
-import { Member } from '../model/Member'
+import { Member } from '../model/Member';
+import { BookBasketFull } from '../model/BookBasketFull';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -14,59 +16,56 @@ export class PanierComponent implements OnInit {
 
   bookBasketIds: Array<number> = [];   // null
   books: Array<Book> = [];
-
-  member:Member;
+  bookBasketFulls: Array<BookBasketFull> = [];  
+  memberId=1;
 
     constructor(
     private backService : BackEndService,
     private messageService: MessagesService,
-    private dss: DatashareService
+    private dss: DatashareService,
+    private router: Router
     ) { }
 
   ngOnInit() {
-   //this.arrayBookPanier = new Array<number>(); // []
-
-   
-   
-
-    // Récupérer la liste des livres 
-
+    this.getListBookBasketFull();
   }
-
 
   emprunter(idBook: number) {
-    this.bookBasketIds.push(idBook); // [1]
-    // Je parcours la liste des livres "books" et trouver celui qui correspond à mon identifiant "idBook" transmis à ma fonction 
-    // Il faut passer l'object Book avec l'attribut "ilEstEmprunter" à true
   }
 
-  enleverDuPanier(idBook: number) {
-    // Je parcours la liste des books
-    for(let i = 0; i < this.bookBasketIds.length; i++) {
-      // Si mon id transmis est l'ID qui est parcouru dans mon array de Book
-      if (idBook === this.bookBasketIds[i]) {
-        this.bookBasketIds.splice(i, 1);    // Avant j'avais [1,2] après j'ai [2]            
-      }
-    }
-
-    // Je parcours la liste des livres "books" et trouver celui qui correspond à mon identifiant "idBook" transmis à ma fonction 
-    // Il faut passer l'object Book avec l'attribut "ilEstEmprunter" à false
-    
-  }
-
-  validerLePanier() {
-    // Appel du back avec transmission de la liste des bouquins empruntés "arrayBookPanier"
-  }
-
-   getListBookByMembersBasket()
- {
-    this.backService.GetListBookBasketByMember(this.member).subscribe(
+  enleverDuPanier(idBookbasket: number) 
+  {
+        this.backService.DeleteBookBasket(idBookbasket).subscribe(
      data => {
        this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service
          this.books = data.payload;
+          this.router.navigate(['/home']);
+       }
+     },
+     error => {
+       console.error(error.message);
+       //messageService.displayFailureMessage(error.message);
+       return null;
+     }
+   );
+
+  }
+
+  validerLePanier() {
+  }
+
+   getListBookBasketFull()
+ {
+    this.backService.GetListBookBasketByMember(this.memberId).subscribe(
+     data => {
+       this.backService.handleData(data);
+       if (data.payload) {
+         console.log(data.payload);
+         //cache the logged member in datashare service
+         this.bookBasketFulls = data.payload;
          return this.bookBasketIds;
        }
      },

@@ -12,6 +12,7 @@ import { Book } from '../model/Book';
 import { Author } from '../model/Author';
 import { Editor } from '../model/Editor';
 import { Category } from '../model/Category';
+import { BookBasketFull } from '../model/BookBasketFull';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -80,9 +81,18 @@ export class BackEndService {
    );
  }
 
- GetListBookBasketByMember(member:Member): Observable<any>
+ GetListBookBasketByMember(idMember:number): Observable<any>
  {
-   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookbasket/getlistbyidmember",member , httpOptions)
+   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookbasket/getlistbyidmember",idMember , httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+
+ DeleteBookBasket(idBookBasket:number)
+ {
+      return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookbasket/delete",idBookBasket , httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
