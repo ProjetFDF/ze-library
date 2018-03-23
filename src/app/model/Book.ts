@@ -5,7 +5,7 @@ import { Editor } from './Editor'
 export interface Book {
 
 	idBook: number;
-	ISBN: number;
+	isbn: number;
 	bookTitre: String;
     bookDescription: String;
     imagePath:String;
@@ -13,9 +13,9 @@ export interface Book {
     periodicBook:boolean;
 	bookPrice: number; // verifier le type
 	publicationDate: String;
-    category: number;
-	editor: number;
-	authors: Array<number>;
+    categoryId: number;
+	editorId: number;
+	authorIds: Array<number>;
 	
 }
 
