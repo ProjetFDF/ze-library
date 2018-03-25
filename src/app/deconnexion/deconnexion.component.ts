@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'ngx-webstorage';
+import { BackEndService } from '../service/back-end.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deconnexion',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeconnexionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storage: LocalStorageService, private backService: BackEndService, private router: Router) { }
 
   ngOnInit() {
   }
+
+  
 
 }

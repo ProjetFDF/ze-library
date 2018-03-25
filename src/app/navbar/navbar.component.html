@@ -25,9 +25,14 @@
 				<li><a routerLink="/inscription"><span
 						class="glyphicon glyphicon-user"></span> Inscription</a></li>
 				<!-- Si on est connecté en tant que membre ou admin -->
-				<li><a routerLink="/login">
+				<li *ngIf="!user; else deco"><a routerLink="/login">
 					<span class="glyphicon glyphicon-log-in"></span> Se connecter</a>
 				</li>
+				<ng-template #deco>
+					<li><a (click)="logout()" style="cursor: pointer">
+						<span class="glyphicon glyphicon-log-in"></span> Se déconnecter</a>
+					</li>
+				</ng-template>
 			</ul>
 		</div>
 	</div>

@@ -3,6 +3,7 @@ import { IdentifiantsVM } from '../model/IndentifiantsVM';
 import { BackEndService } from '../service/back-end.service';
 import { MessagesService } from '../service/messages.service';
 import { DatashareService } from '../service/datashare.service';
+import { LocalStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     private backService : BackEndService,
     private messageService: MessagesService,
     private dss: DatashareService,
+    private storage: LocalStorageService,
     private router: Router
     ) { }
 
@@ -35,9 +37,10 @@ export class LoginComponent implements OnInit {
         if (data.payload) {
           console.log(data.payload);
           //cache the logged member in datashare service
+          this.storage.store('me', data.payload)
           this.dss.loggedMember = data.payload;
           //navigate to home and display navbar or the hidden tabs
-          this.router.navigate(['/home']);
+          this.router.navigate(['/book']);
         }
       },
       error => {

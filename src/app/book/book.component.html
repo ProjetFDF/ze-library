@@ -1,4 +1,8 @@
-
+<header>
+	<app-header></app-header>
+  </header>
+  
+  <navbar></navbar>
 	<div class="row">
 		<div class="col-lg-2 col-md-6" id="filtres">
 			<h1 class="my-4">Filtres</h1>
@@ -37,7 +41,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-10">
-			<div *ngFor="let book of listeBooks" class="col-lg-3 col-md-6 mb-4" id="book" >
+			<div *ngFor="let book of listeBooks" class="col-lg-3 col-md-6 mb-4" style="height:500px;" id="book" >
 					<div class="card h-100" >
 						<a href="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"><img style="max-width: 150px; height: auto;" src="http://localhost:8080/GestionBiblio/book/image/?imagePath={{book.imagePath}}"/></a>
 					<div class="card-body">

@@ -32,6 +32,11 @@ export class BackEndService {
     return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/login", identifiantsVm, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
 
+  Logout(): Observable<any> 
+  {
+    return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/logout", httpOptions).pipe(retry(3),catchError(this.handleError));
+  } 
+
   Inscription(member): Observable<any> 
   {
     console.log(member);
@@ -89,6 +94,36 @@ export class BackEndService {
      catchError(this.handleError)
    );
  }
+
+ GetBookByBookCopy(idBookCopy:number): Observable<any>
+ {
+   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookcopy/getlistbookbyidcopy",idBookCopy , httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+
+
+ GetListAuthorByBook(idBook:number): Observable<any>
+ {
+   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/book/getlistauthorbyidbook",idBook , httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+
+
+ GetEditorByBook(idBook:number): Observable<any>
+ {
+   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/book/geteditorbyidbook",idBook , httpOptions)
+   .pipe(      
+     retry(3),
+     catchError(this.handleError)
+   );
+ }
+
 
  DeleteBookBasket(idBookBasket:number)
  {

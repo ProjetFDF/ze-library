@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageService } from 'ngx-webstorage';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -53,7 +54,7 @@ import { ChecklistModule } from 'angular-checklist';
     HttpClientModule,
     ChecklistModule
   ],
-  providers: [BackEndService, MessagesService, DatashareService],
+  providers: [BackEndService, MessagesService, DatashareService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
