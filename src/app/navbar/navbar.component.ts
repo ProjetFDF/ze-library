@@ -3,6 +3,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
 import { BackEndService } from '../service/back-end.service';
 import { Member } from '../model/Member';
+import { BASE_URL } from '../utils/app_constant';
 
 @Component({
   selector: 'navbar',

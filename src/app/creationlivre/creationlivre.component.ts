@@ -8,6 +8,7 @@ import { Author } from '../model/Author';
 import { Editor } from '../model/Editor';
 import { Category } from '../model/Category';
 
+
 @Component({
   selector: 'app-creationlivre',
   templateUrl: './creationlivre.component.html',
@@ -16,27 +17,24 @@ import { Category } from '../model/Category';
 export class CreationlivreComponent implements OnInit {
 
     listeAuthor: any;
-  listeEditor: any;
-  listeCategory: any;
+    listeEditor: any;
+    listeCategory: any;
 
     book:Book= {
     idBook:0 ,
-isbn:0 ,
-bookTitre:"" ,
-bookDescription:"" ,
-imagePath:"" ,
-popularBook:false ,
-periodicBook:false ,
-bookPrice:0 ,
-publicationDate:"" ,
-categoryId:0 ,
-editorId:0 ,
-authorIds:[] ,
+    isbn:0 ,
+    bookTitre:"" ,
+    bookDescription:"" ,
+    imagePath:"" ,
+    popularBook:false ,
+    periodicBook:false ,
+    bookPrice:0 ,
+    publicationDate:"" ,
+    categoryId:0 ,
+    editorId:0 ,
+    authorIds:[] ,
 
     };
-
-//  categoryIds:Array<number>;
-//editorIds:Array<number>;
 
   constructor(
     private backService : BackEndService,
@@ -74,12 +72,27 @@ authorIds:[] ,
       }
 
     );
+        this.book= {
+    idBook:0 ,
+isbn:0 ,
+bookTitre:"" ,
+bookDescription:"" ,
+imagePath:"" ,
+popularBook:false ,
+periodicBook:false ,
+bookPrice:0 ,
+publicationDate:"" ,
+categoryId:0 ,
+editorId:0 ,
+authorIds:[] ,
+
+    };
   }
 getEditors()
  {
     this.backService.GetListEditor().subscribe(
      data => {
-       this.backService.handleData(data);
+     //  this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service
@@ -101,7 +114,7 @@ getEditors()
  {
     this.backService.GetListAuthor().subscribe(
      data => {
-       this.backService.handleData(data);
+     //  this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service
@@ -122,7 +135,7 @@ getEditors()
  {
     this.backService.GetListCategory().subscribe(
      data => {
-       this.backService.handleData(data);
+     //  this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service

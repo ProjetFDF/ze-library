@@ -1,3 +1,6 @@
+
+import { Author } from '../model/Author';
+import { Editor } from '../model/Editor';
 export interface BookBasketFull
 {
     bookBasketId:number;
@@ -13,7 +16,7 @@ export interface BookBasketFull
 	bookPrice: number;
 	publicationDate: String;
     categoryId: number;
-	editorId: number;
-	authorIds: Array<number>;
+	editor: Editor;
+	authors: Array<Author>;
     memberId:number;
 }

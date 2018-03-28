@@ -1,0 +1,1 @@
+export const BASE_URL:string = "http://172.16.2.30:8080/GestionBiblio";

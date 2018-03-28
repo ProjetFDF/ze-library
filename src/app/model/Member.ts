@@ -1,6 +1,3 @@
-import { Borrow } from './Borrow'
-import { BookBasket } from './BookBasket'
-
 export interface Member
 {
     idMember: number;

@@ -7,6 +7,7 @@ import { FiltresMultiplesVM } from '../model/FiltresMultiplesVM';
 import { Author } from '../model/Author';
 import { Editor } from '../model/Editor';
 import { Category } from '../model/Category';
+import { BASE_URL } from '../utils/app_constant';
 
 @Component({
   selector: 'app-book',
@@ -14,6 +15,8 @@ import { Category } from '../model/Category';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
+
+private URL:string = BASE_URL+"/book/image/?imagePath=";
 
   listeBooks: any;
   listeAuthor: any;
@@ -48,7 +51,7 @@ export class BookComponent implements OnInit {
      data => {
     //   console.log("================================================");
       //   console.log(this.filtresMultiplesVM.authorIds);
-       this.backService.handleData(data);
+     //  this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service
@@ -69,7 +72,7 @@ export class BookComponent implements OnInit {
  {
     this.backService.GetListEditor().subscribe(
      data => {
-       this.backService.handleData(data);
+     //  this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service
@@ -91,7 +94,7 @@ export class BookComponent implements OnInit {
  {
     this.backService.GetListAuthor().subscribe(
      data => {
-       this.backService.handleData(data);
+     //  this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service
@@ -112,7 +115,7 @@ export class BookComponent implements OnInit {
  {
     this.backService.GetListCategory().subscribe(
      data => {
-       this.backService.handleData(data);
+      // this.backService.handleData(data);
        if (data.payload) {
          console.log(data.payload);
          //cache the logged member in datashare service

@@ -1,68 +1,68 @@
+<header>
+	<app-header></app-header>
+  </header>
+  
+  <navbar></navbar>
 <div class="row">
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4">
+	
+	<div class="col-sm-5 col-sm-offset-4">
 		<form class="form-group">
-			<input id="isbn" type="number" class="form-control" name="isbn" [(ngModel)]="book.isbn" placeholder="ISBN">
-			<input id="titre" type="text" class="form-control" name="bookTitre" [(ngModel)]="book.bookTitre" placeholder="Titre">
-			<input id="description" type="text" class="form-control" name="bookDescription" [(ngModel)]="book.bookDescription" placeholder="Description">
-			<input id="prix" type="text" class="form-control" name="bookPrice" [(ngModel)]="book.bookPrice" placeholder="Prix">
-			<input id="datePublication" type="text" class="form-control" name="publicationDate" [(ngModel)]="book.publicationDate" placeholder="Date de publication">
-			<!--<input id="categories" type="text" class="form-control" name="category" [(ngModel)]="book.category" placeholder="categories"> 
-    <input id="editor" type="text" class="form-control" name="editor" [(ngModel)]="book.editor" placeholder="editor">
-	<br/>
-    <input id="auteur" type="text" class="form-control" name="authors" [(ngModel)]="book.authors" placeholder="auteur">-->
-
-
-			<!--<select name="authorlist" multiple*ngFor="let author of listeAuthor" >
-				<option [(checklist)]="book.authors" [checklistValue]="author.authorId">{{author.authorLastname}} {{author.authorFirstname}}</option>
-			</select>-->
-			<br/>
-	<!--		<div>
-			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
-				<div class="form-check" id="listAuthors"><label for="listAuthors">Auteurs :</label></div>
-				<label *ngFor="let author of listeAuthor">
-                 <input type="checkbox" class="form-check-input" name="selectionAuteur" [(checklist)]="book.authorIds" [checklistValue]="author.authorId"/>
-                  {{author.authorLastname}} {{author.authorFirstname}}
-            </label>
+			<div class="form-group row">
+			<label class="col-sm-3 col-form-label">ISBN</label><div class="col-sm-9"><input id="isbn" type="text" class="form-control" name="isbn" [(ngModel)]="book.isbn" placeholder="ISBN"></div>
 			</div>
-			</div>-->
+			<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Titre</label><div class="col-sm-9"><input id="titre" type="text" class="form-control" name="bookTitre" [(ngModel)]="book.bookTitre" placeholder="Titre"></div>
+			</div>
+			<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Description</label><div class="col-sm-9"><input id="description" type="text" class="form-control" name="bookDescription" [(ngModel)]="book.bookDescription" placeholder="Description"></div>
+			</div>
+			<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Prix</label><div class="col-sm-9"><input id="prix" type="text" class="form-control" name="bookPrice" [(ngModel)]="book.bookPrice" placeholder="Prix"></div>
+			</div>
+			<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Date de publication</label><div class="col-sm-9"><input id="datePublication" type="date" class="form-control" name="publicationDate" [(ngModel)]="book.publicationDate" placeholder="Date de publication"></div>
+			</div>
+
+			<br/>
+			<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Auteurs</label><div class="col-sm-9">
 						<select name="author.authorId" [(ngModel)]='book.authorIds' multiple>
-                           <option *ngFor="let author of listeAuthor"
-                           [ngValue]="author.authorId">{{author.authorLastname}} {{author.authorFirstname}}</option>
+                           <option *ngFor="let author of listeAuthor" [ngValue]="author.authorId">{{author.authorLastname}} {{author.authorFirstname}}</option>
                        </select>
-
-
+			</div>
+			</div>
+						<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Auteurs</label><div class="col-sm-9">
 			<select name="editor.idEditor" [(ngModel)]='book.editorId'>
                            <option *ngFor="let editor of listeEditor"
-                           [ngValue]="editor.idEditor">{{editor.name}}{{book.editorId}}</option>
+                           [ngValue]="editor.idEditor">{{editor.name}}</option>
                        </select>
-
+			</div>
+			</div>
+						<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Catégorie</label><div class="col-sm-9">
 			<select name="category.idCategory" [(ngModel)]='book.categoryId'>
                            <option *ngFor="let category of listeCategory"
-                           [ngValue]="category.idCategory">{{category.name}}{{categoryIds}}</option>
+                           [ngValue]="category.idCategory">{{category.name}}</option>
                        </select>
-			
-		<!--	<div>
-			<div class="" style=" float:left; height: 100px; width:200px; border-left:5px solid #14265E; padding:5px 10px 10px 10px; font-size:1.1em; overflow:auto;">
-				<div class="form-check" id="listCategorys"><label for="listCategorys">categories :</label></div>
-				<label *ngFor="let category of listeCategory">
-                 <input type="radio" class="form-check-input" name="selectionCategory" [(checklist)]="categoryIds" [checklistValue]="category.idCategory"/>
-                  {{category.name}}{{categoryIds}}
-            </label>
 			</div>
-			</div>-->
+			</div>
 			<br/>
-		
+
 			<div class="form-check">
 				<input type="checkbox" class="form-check-input" [(ngModel)]="book.periodicBook" name="periodicBook" id="periodique">
 				<label class="form-check-label" for="periodique">Periodique</label>
-			</div>			
+			</div>		
+
 			<div class="form-check">
 				<input type="checkbox" class="form-check-input" [(ngModel)]="book.popularBook" name="popularBook" id="populaire">
 				<label class="form-check-label" for="populaire">Populaire</label>
-			</div>			
+			</div>	
+			<br>
+						<div class="form-group row">
 			<button class="btn btn-default" (click)="creationlivre()">Enregistrer</button>
+						</div>
 		</form>
 	</div>
-	<div class="col-sm-4"></div>
 </div>
+<br>

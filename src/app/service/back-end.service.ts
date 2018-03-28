@@ -12,7 +12,9 @@ import { Book } from '../model/Book';
 import { Author } from '../model/Author';
 import { Editor } from '../model/Editor';
 import { Category } from '../model/Category';
+import { BookBasket } from '../model/BookBasket';
 import { BookBasketFull } from '../model/BookBasketFull';
+import { BASE_URL } from '../utils/app_constant';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -29,30 +31,30 @@ export class BackEndService {
   Login(identifiantsVm: IdentifiantsVM): Observable<any> 
   {
     console.log(identifiantsVm);
-    return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/login", identifiantsVm, httpOptions).pipe(retry(3),catchError(this.handleError));
+    return this.http.post<IdentifiantsVM>(BASE_URL+"/member/login", identifiantsVm, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
 
   Logout(): Observable<any> 
   {
-    return this.http.post<IdentifiantsVM>("http://localhost:8080/GestionBiblio/member/logout", httpOptions).pipe(retry(3),catchError(this.handleError));
+    return this.http.post<IdentifiantsVM>(BASE_URL+"/member/logout", httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
 
   Inscription(member): Observable<any> 
   {
     console.log(member);
-    return this.http.post<Member>("http://localhost:8080/GestionBiblio/member/add",member, httpOptions).pipe(retry(3),catchError(this.handleError));
+    return this.http.post<Member>(BASE_URL+"/member/add",member, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
 
  Creationlivre(book): Observable<any> 
   {
     console.log(book);
-    return this.http.post<Book>("http://localhost:8080/GestionBiblio/book/add",book, httpOptions).pipe(retry(3),catchError(this.handleError));
+    return this.http.post<Book>(BASE_URL+"/book/add",book, httpOptions).pipe(retry(3),catchError(this.handleError));
   } 
 
   Books(filtresMultiplesVM): Observable<any>
  {
    console.log(filtresMultiplesVM);
-   return this.http.post<FiltresMultiplesVM>("http://localhost:8080/GestionBiblio/book/search",filtresMultiplesVM, httpOptions)
+   return this.http.post<FiltresMultiplesVM>(BASE_URL+"/book/search",filtresMultiplesVM, httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
@@ -61,7 +63,7 @@ export class BackEndService {
  
  GetListAuthor(): Observable<any>
  {
-   return this.http.get<Author[]>("http://localhost:8080/GestionBiblio/author/getlist", httpOptions)
+   return this.http.get<Author[]>(BASE_URL+"/author/getlist", httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
@@ -70,7 +72,7 @@ export class BackEndService {
  
  GetListEditor(): Observable<any>
  {
-   return this.http.get<Editor[]>("http://localhost:8080/GestionBiblio/editor/getlist", httpOptions)
+   return this.http.get<Editor[]>(BASE_URL+"/editor/getlist", httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
@@ -79,16 +81,16 @@ export class BackEndService {
 
  GetListCategory(): Observable<any>
  {
-   return this.http.get<Category[]>("http://localhost:8080/GestionBiblio/category/getlist", httpOptions)
+   return this.http.get<Category[]>(BASE_URL+"/category/getlist", httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
    );
  }
 
- GetListBookBasketByMember(idMember:number): Observable<any>
+ GetListBookBasketByMember(member:Member): Observable<any>
  {
-   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookbasket/getlistbyidmember",idMember , httpOptions)
+   return this.http.post<BookBasket[]>(BASE_URL+"/bookbasket/getlistbyidmember",member , httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
@@ -97,7 +99,7 @@ export class BackEndService {
 
  GetBookByBookCopy(idBookCopy:number): Observable<any>
  {
-   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookcopy/getlistbookbyidcopy",idBookCopy , httpOptions)
+   return this.http.post<Book>(BASE_URL+"/bookcopy/getlistbookbyidcopy",idBookCopy , httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
@@ -107,7 +109,7 @@ export class BackEndService {
 
  GetListAuthorByBook(idBook:number): Observable<any>
  {
-   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/book/getlistauthorbyidbook",idBook , httpOptions)
+   return this.http.post<Author[]>(BASE_URL+"/book/getlistauthorbyidbook",idBook , httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
@@ -117,7 +119,7 @@ export class BackEndService {
 
  GetEditorByBook(idBook:number): Observable<any>
  {
-   return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/book/geteditorbyidbook",idBook , httpOptions)
+   return this.http.post<Editor>(BASE_URL+"/book/geteditorbyidbook",idBook , httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)
@@ -127,7 +129,7 @@ export class BackEndService {
 
  DeleteBookBasket(idBookBasket:number)
  {
-      return this.http.post<Category[]>("http://localhost:8080/GestionBiblio/bookbasket/delete",idBookBasket , httpOptions)
+      return this.http.post<any>(BASE_URL+"/bookbasket/delete",idBookBasket , httpOptions)
    .pipe(      
      retry(3),
      catchError(this.handleError)

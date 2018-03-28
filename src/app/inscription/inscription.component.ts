@@ -57,6 +57,19 @@ export class InscriptionComponent implements OnInit {
       }
 
     );
-
+   this.member= {
+    idMember:0 ,
+	  lastname:"" ,
+    firstname:"",
+	  email:"" ,
+	  password:"" ,
+    address:"" ,
+    city:"" ,
+    postalCode:"" ,
+    phone:"" ,
+	  administrateur:false ,
+	  bookBasketsIds:[],
+	  borrowsIds:[]
+  };
   }
 }

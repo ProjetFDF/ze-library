@@ -12,10 +12,12 @@
 				<li class="active"><a routerLink="/"><i class="glyphicon glyphicon-home"></i></a></li>
 				<li><a routerLink="/book">Recherche</a></li>
 				<li><a routerLink="/panier">Panier</a></li>
+				<li><a routerLink="/creationlivre">Ajout d'un livre</a></li>
 				<!-- Si on est connecté en tant que membre -->
-				<li><a routerLink="/compte">Mon compte</a></li>
+			<!--	<li><a routerLink="/compte">Mon compte</a></li>-->>
 				<!-- Si on est admin -->
-				<li><a routerLink="/gestioncompte">Gestion
+								
+				<li  *ngIf="!user;"><a routerLink="/gestioncompte">Gestion
 						membres et paniers</a></li>
 				<li style="width: 30%;">
 				</li>

@@ -1,3 +1,9 @@
+<header>
+	<app-header></app-header>
+  </header>
+  
+  <navbar></navbar>
+
 <div class="container">
 	<div class="starter-template">
 		<br /> <br />
@@ -11,13 +17,21 @@
 <div class="col-sm-4">
 <form class="form-group" >
 	<input id="nom" type="text" class="form-control" name="firstname" [(ngModel)]="member.firstname" placeholder="Nom">  
-	<input id="prenom" type="text" class="form-control" name="lastname" [(ngModel)]="member.lastname" placeholder="Prenom">  
-	<input id="mail" type="email" class="form-control" name="email" [(ngModel)]="member.email" placeholder="Mail" >  
-	<input id="pwd"type="password" class="form-control" name="password" [(ngModel)]="member.password" placeholder="Password">  
+	<br>
+	<input id="prenom" type="text" class="form-control" name="lastname" [(ngModel)]="member.lastname" placeholder="Prénom">  
+	<br>
+	<input id="mail" type="email" class="form-control" name="email" [(ngModel)]="member.email" placeholder="E-Mail" >  
+	<br>
+	<input id="pwd"type="password" class="form-control" name="password" [(ngModel)]="member.password" placeholder="Mot de passe">  
+	<br>
 	<input id="adresse" type="text" class="form-control" name="address" [(ngModel)]="member.address" placeholder="Adresse">  
+	<br>
 	<input id="ville" type="text" class="form-control" name="city" [(ngModel)]="member.city" placeholder="Ville">  
+	<br>
 	<input id="codePostal" type="text" class="form-control" name="postalCode" [(ngModel)]="member.postalCode" placeholder="CodePostal">  
+	<br>
 	<input id="tel" type="text" class="form-control" name="phone" [(ngModel)]="member.phone" placeholder="Tel">  
+	<br>
 	<div class="form-check">
     	<input type="checkbox" class="form-check-input" [(ngModel)]="member.administrateur" name="administrateur" id="admin">
     	<label class="form-check-label" for="admin" >Administrateur</label>
@@ -28,3 +42,5 @@
 </div>
 <div class="col-sm-4"></div>
 </div>
+
+<br><br>

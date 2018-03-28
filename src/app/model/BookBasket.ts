@@ -1,7 +1,7 @@
 export interface BookBasket
 {
-    bookBasketId:number;
-	bookBasketCreationDate:String;
-    bookBasketDeliveryDate:String;
-	bookBasketBookCopy:Array<number>;
+    idBookBasket:number;
+	creationDate:String;
+    deliveryDate:String;
+	bookCopyId:number;
 }

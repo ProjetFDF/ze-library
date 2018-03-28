@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   identifiants: IdentifiantsVM = {
@@ -38,7 +39,6 @@ export class LoginComponent implements OnInit {
           console.log(data.payload);
           //cache the logged member in datashare service
           this.storage.store('me', data.payload)
-          this.dss.loggedMember = data.payload;
           //navigate to home and display navbar or the hidden tabs
           this.router.navigate(['/book']);
         }
